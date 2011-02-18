@@ -28,8 +28,8 @@ import android.content.Intent;
 import android.widget.Toast;
 
 /**
- * Broadcast receiver that set iptables rules on system startup.
- * This is necessary because the rules are not persistent.
+ * Broadcast receiver that set iptables rules on system startup. This is
+ * necessary because the rules are not persistent.
  */
 public class BootBroadcast extends BroadcastReceiver {
 

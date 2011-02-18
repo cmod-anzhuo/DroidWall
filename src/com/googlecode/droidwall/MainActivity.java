@@ -463,6 +463,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener, O
 		};
 		handler.sendEmptyMessageDelayed(0, 100);
 	}
+	
 	/**
 	 * Purge iptable rules, showing a visual indication
 	 */
