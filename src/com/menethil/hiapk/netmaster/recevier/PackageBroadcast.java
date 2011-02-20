@@ -19,7 +19,9 @@
  * @author Rodrigo Zechin Rosauro
  * @version 1.0
  */
-package com.googlecode.droidwall;
+package com.menethil.hiapk.netmaster.recevier;
+
+import com.menethil.hiapk.netmaster.util.Api;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

@@ -20,7 +20,11 @@
  * @author Rodrigo Zechin Rosauro
  * @version 1.0
  */
-package com.googlecode.droidwall;
+package com.menethil.hiapk.netmaster.recevier;
+
+import com.menethil.hiapk.netmaster.BaseContext;
+import com.menethil.hiapk.netmaster.R;
+import com.menethil.hiapk.netmaster.util.Api;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -36,14 +40,13 @@ public class BootBroadcast extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-			if (Api.isEnabled(context)) {
+			if (BaseContext.getInstance().isEnabled()) {
 				if (!Api.applySavedIptablesRules(context, false)) {
 					// Error enabling firewall on boot
 					Toast.makeText(context, R.string.toast_error_enabling, Toast.LENGTH_SHORT).show();
-					Api.setEnabled(context, false);
+					BaseContext.getInstance().setEnabled(false);
 				}
 			}
 		}
 	}
-
 }

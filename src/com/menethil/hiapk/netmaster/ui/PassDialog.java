@@ -19,7 +19,9 @@
  * @author Rodrigo Zechin Rosauro
  * @version 1.0
  */
-package com.googlecode.droidwall;
+package com.menethil.hiapk.netmaster.ui;
+
+import com.menethil.hiapk.netmaster.R;
 
 import android.app.Dialog;
 import android.content.Context;
