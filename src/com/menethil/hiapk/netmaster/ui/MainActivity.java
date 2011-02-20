@@ -83,6 +83,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener, O
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		BaseContext.getInstance().inistContext(this);
 		checkPreferences();
 		setContentView(R.layout.main);
 		this.findViewById(R.id.label_mode).setOnClickListener(this);
@@ -480,7 +481,13 @@ public class MainActivity extends Activity implements OnCheckedChangeListener, O
 				}
 				if (!BaseContext.getInstance().isRooted())
 					return;
-				if (Api.clearLog(MainActivity.this)) {
+				try {
+					if (Api.clearLog(MainActivity.this)) {
+						Toast.makeText(MainActivity.this, R.string.log_cleared, Toast.LENGTH_SHORT).show();
+					}
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 					Toast.makeText(MainActivity.this, R.string.log_cleared, Toast.LENGTH_SHORT).show();
 				}
 			}

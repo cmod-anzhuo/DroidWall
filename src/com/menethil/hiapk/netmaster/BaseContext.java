@@ -32,7 +32,8 @@ public class BaseContext {
 		return baseContext;
 	}
 
-	public void inistContext() {
+	public void inistContext(Context context) {
+		this.context = context;
 		setScriptRunner(new ScriptRunner());
 		setRooted(Utils.hasRootAccess());
 		isARMv6 = Utils.isARMv6();

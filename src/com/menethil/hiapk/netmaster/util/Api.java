@@ -49,8 +49,7 @@ import android.util.Log;
  */
 public final class Api {
 	/**
-	 * Create the generic shell script header used to determine which iptables
-	 * binary to use.
+	 * 创建 iptables 配置文件头
 	 * 
 	 * @param ctx
 	 *            context
@@ -305,7 +304,7 @@ public final class Api {
 	}
 
 	/**
-	 * Purge and re-add all rules.
+	 * 保存并重载规则
 	 * 
 	 * @param ctx
 	 *            application context (mandatory)
@@ -321,7 +320,7 @@ public final class Api {
 	}
 
 	/**
-	 * Save current rules using the preferences storage.
+	 * 保存规则设置
 	 * 
 	 * @param ctx
 	 *            application context (mandatory)
@@ -385,7 +384,7 @@ public final class Api {
 	}
 
 	/**
-	 * Display iptables rules output
+	 * 显示规则配置列表
 	 * 
 	 * @param ctx
 	 *            application context
@@ -402,30 +401,28 @@ public final class Api {
 	}
 
 	/**
-	 * Display logs
+	 * 删除日志
 	 * 
 	 * @param ctx
 	 *            application context
 	 * @return true if the clogs were cleared
 	 */
-	public static boolean clearLog(Context ctx) {
+	public static boolean clearLog(Context ctx) throws Exception {
 		try {
 			final StringBuilder res = new StringBuilder();
 			int code = BaseContext.getInstance().getScriptRunner()
 					.runScriptAsRoot("dmesg -c >/dev/null || exit\n", res);
 			if (code != 0) {
-				// alert(ctx, res);
 				return false;
 			}
 			return true;
 		} catch (Exception e) {
-			// alert(ctx, "error: " + e);
 		}
 		return false;
 	}
 
 	/**
-	 * Display logs
+	 * 显示日志
 	 * 
 	 * @param ctx
 	 *            application context
@@ -518,6 +515,8 @@ public final class Api {
 	}
 
 	/**
+	 * 获取应用程序列表
+	 * 
 	 * @param ctx
 	 *            application context (mandatory)
 	 * @return a list of applications
@@ -652,14 +651,12 @@ public final class Api {
 	}
 
 	/**
-	 * Called when an application in removed (un-installed) from the system.
-	 * This will look for that application in the selected list and update the
-	 * persisted values if necessary
+	 * 程序被删除时，移除相关的设置
 	 * 
 	 * @param ctx
 	 *            mandatory app context
 	 * @param uid
-	 *            UID of the application that has been removed
+	 *            应用程序 UID
 	 */
 	public static void applicationRemoved(Context ctx, int uid) {
 		final SharedPreferences prefs = ctx.getSharedPreferences(Contents.PREFS_NAME, 0);
