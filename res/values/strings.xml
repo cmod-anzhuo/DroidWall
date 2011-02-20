@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DroidWall</string>
-    <string name="title_enabled">DroidWall v%s</string>
-    <string name="title_disabled">DroidWall v%s (Firewall disabled)</string>
+    <string name="app_name">NetMaster</string>
+    <string name="title_enabled">NetMaster v%s</string>
+    <string name="title_disabled">NetMaster v%s (防火墙禁用)</string>
     <string name="showrules">显示日志</string>
     <string name="applyrules">应用规则</string>
     <string name="saverules">保存规则</string>
@@ -18,9 +18,9 @@
     <string name="log_was_enabled">日志记录已启用</string>
     <string name="log_was_disabled">日志记录已禁用</string>
     <string name="log_cleared">日志已清除</string>
-    <string name="show_log">Show log</string>
-    <string name="clear_log">Clear log</string>
-    <string name="applying_rules">Applying iptables rules.</string>
+    <string name="show_log">显示日志</string>
+    <string name="clear_log">清除日志</string>
+    <string name="applying_rules">正在应用规则...</string>
     <string name="saving_rules">Saving iptables rules.</string>
     <string name="deleting_rules">删除规则</string>
     <string name="rules_applied">规则已成功应用</string>
